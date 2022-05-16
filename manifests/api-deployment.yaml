@@ -1,0 +1,26 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   creationTimestamp: null
+#   labels:
+#     app: api-deployment
+#   name: api-deployment
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: api-deployment
+#   strategy: {}
+#   template:
+#     metadata:
+#       creationTimestamp: null
+#       labels:
+#         app: api-deployment
+#     spec:
+#       containers:
+#       - image: uempfelccc/whackapod-api
+#         name: whackapod-api
+#         ports:
+#         - containerPort: 8080
+#         resources: {}
+# status: {}

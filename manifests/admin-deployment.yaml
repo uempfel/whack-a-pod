@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: admin-deployment
+  name: admin-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: admin-deployment
+    spec:
+      containers:
+      - env:
+        - name: APIIMAGE
+          value: uempfelccc/whackapod-api
+        image: uempfelccc/whackapod-admin
+        imagePullPolicy: Always
+        name: admin-pod
+        ports:
+        - containerPort: 8080

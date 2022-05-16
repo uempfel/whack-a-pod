@@ -16,3 +16,4 @@ apps/api/kubernetes/api-deployment.yaml
 /apps/api/containers/main
 /Makefile.de.properties
 Makefile.uk.properties
+dist

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: game-deployment
+  name: game-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: game-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: game-deployment
+    spec:
+      containers:
+      - image: uempfelccc/whackapod-game
+        imagePullPolicy: Always
+        name: whackapod-game
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

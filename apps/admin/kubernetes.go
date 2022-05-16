@@ -67,7 +67,7 @@ func listPods() ([]byte, error) {
 }
 
 func deletePod(podname string) ([]byte, error) {
-	url := root + podname
+	url := root + "/api/v1/namespaces/default/pods/" + podname
 
 	b, status, err := queryK8sAPI(url, "DELETE", nil)
 	if err != nil {
@@ -198,7 +198,7 @@ type minimumPort struct {
 }
 
 func createDeployment() ([]byte, error) {
-	selflink := "/apis/extensions/v1beta1/namespaces/default/deployments"
+	selflink := "/apis/apps/v1/namespaces/default/deployments"
 	url := root + selflink
 
 	image := os.Getenv("APIIMAGE")
@@ -212,7 +212,7 @@ func createDeployment() ([]byte, error) {
 	}
 
 	var d minimumDeployment
-	d.APIVersion = "extensions/v1beta1"
+	d.APIVersion = "apps/v1"
 	d.Kind = "Deployment"
 	d.Metadata.Name = "api-deployment"
 	d.Spec.Replicas = 12

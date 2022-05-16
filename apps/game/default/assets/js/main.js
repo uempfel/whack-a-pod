@@ -143,7 +143,9 @@ function alertYouKilledIt(){
 
 function whackHandler(e){
     sounds.PlayWhack();
-    killPod(e.target.dataset.selflink)
+    console.log("Whack called")
+    console.log(JSON.stringify(e))
+    killPod(e.target.id)
 }
 
 function killPod(selflink){
@@ -155,11 +157,12 @@ function bombClickHandler(e){
 }
 
 function bombBlastHandler(e){
+    console.log("Bomb called")
     sounds.PlayExplosion();
     for (var i = 0; i < e.items.length; i++){
         var pod = e.items[i];
         if (pod.status.phase == "Running"){
-            killPod(pod.metadata.selfLink);
+            killPod(pod.metadata.name);
         }
     }
     bombUI.Explode();
